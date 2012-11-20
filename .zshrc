@@ -70,7 +70,7 @@ esac
 alias ls="ls $LSOPTS --color"
 alias ll="ls $LLOPTS | less -FX"
 alias grep="noglob grep -E"
-
+alias rot13="tr '[A-Za-z]' '[N-ZA-Mn-za-m]'"
 
 #Coloring the hostname uniquiely for each machine.
 
