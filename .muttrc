@@ -1,0 +1,20 @@
+set my_tmpsecret=`gpg -o ~/.tmp -d ~/.passwds.gpg`
+set my_aimuser=`awk '/AIMU:/ {print $2}' ~/.tmp`
+set my_aimpass=`awk '/AIMP:/ {print $2}' ~/.tmp`
+set my_wlmuser=`awk '/LIVEU:/ {print $2}' ~/.tmp`
+set my_wlmpass=`awk '/LIVEP:/ {print $2}' ~/.tmp`
+set my_del=`rm -f ~/.tmp`
+
+account-hook . 'unset imap_login; unset imap_pass; unset pop_user; unset pop_pass'
+account-hook imaps://imap.aim.com/ 'set imap_user=$my_aimuser imap_pass=$my_aimpass smtp_url=smtps://smtp.live.com:587 smtp_pass=$my_aimpass from=$my_aimuser'
+account-hook pops://pop3.live.com/ 'set pop_user=$my_wlmuser pop_pass=$my_wlmpass smtp_url=smtps://smtp.live.com:587 smtp_pass=$my_wlmpass from=$my_wlmuser'
+
+set realname = "Terra Ezeri"
+set editor = emacsclient
+
+set smart_wrap = yes
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+macro index ga1 '<change-folder>imaps://imap.aim.com/<enter>'
+macro index ga2 '<change-folder>pops://pop3.live.com/<enter>'
