@@ -1,4 +1,4 @@
-(server-start)
+(add-to-list 'load-path "~/.emacs.d/")
 
 ;;; Highlight the current line being edited
 
@@ -30,3 +30,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(require 'twittering-mode)
+(setq twittering-use-master-password t)
+(require 'ddg)
+(require 'ddg-search)
+(require 'ddg-mode)
